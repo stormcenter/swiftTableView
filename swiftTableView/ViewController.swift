@@ -39,6 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         println("You selected cell #\(indexPath.row)!")
+        var detail:DetailViewController = self.storyboard.instantiateViewControllerWithIdentifier("detail") as DetailViewController
+        detail.capitalString = self.items[indexPath.row]
+//        self.presentViewController(detail,animated:true,completion:nil);
+//        detail.capitalLabel.text = self.items[indexPath.row]
+        self.navigationController.pushViewController(detail,animated:true)
     }
 }
 
